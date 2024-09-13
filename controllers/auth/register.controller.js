@@ -25,7 +25,14 @@ export const register = async (req, res) => {
             username: user.username 
         });
 
-        res.status(201).json({ token });
+        res.cookie('jwt_token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+
+        res.status(201).json({ message: 'Register Successful' });
 
     } catch (error) {
 

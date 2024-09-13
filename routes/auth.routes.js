@@ -1,9 +1,12 @@
 import { Router } from "express";
 import { register } from "../controllers/auth/register.controller.js";
 import { login } from "../controllers/auth/login.controller.js";
+import { logout } from "../controllers/auth/logout.controller.js";
 
-export const authRouter = Router();
+export const authRoutes = Router();
 
-authRouter.post('/api/v1/register', register);
+authRoutes.post('/api/v1/register', register);
 
-authRouter.post('/api/v1/login', login);
+authRoutes.post('/api/v1/login', login);
+
+authRoutes.post('/api/v1/logout', logout);

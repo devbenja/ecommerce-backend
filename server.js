@@ -1,20 +1,28 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 import { User } from './models/user.model.js';
+import { Category } from './models/category.model.js';
+
 import { sequelize } from './config/database.js';
 import { databaseConnection } from './config/database.js';
 import { PORT } from './config/data_config.js';
-import { authRouter } from './routes/auth.routes.js';
+
+import { authRoutes } from './routes/auth.routes.js';
+import { categoryRoutes } from './routes/category.routes.js';
+
 
 const app = express();
 
 //Middlewares
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 // Rutas
-app.use(authRouter);
+app.use(authRoutes);
+app.use(categoryRoutes);
 
 // Puerto
 app.listen(PORT, () => console.log(`Server Running on Port ${PORT}`));

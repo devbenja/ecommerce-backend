@@ -8,7 +8,12 @@ export const login = async (req, res) => {
 
     try {
 
-        const user = await User.findOne({ where: { email: email } });
+        const user = await User.findOne({ 
+            where: { 
+                email: email 
+            } 
+        });
+
         if (!user) return res.status(400).json({ message: 'Invalid Credentials' });
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -20,7 +25,14 @@ export const login = async (req, res) => {
             username: user.username 
         });
 
-        res.status(200).json({ token });
+        res.cookie('jwt_token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+
+        res.status(200).json({ message: 'Login Successful' });
 
     } catch (error) {
 
