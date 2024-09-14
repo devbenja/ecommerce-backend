@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser';
 import { User } from './models/user.model.js';
 import { Category } from './models/category.model.js';
 import { Product } from './models/product.model.js';
+import { Cart } from './models/cart.model.js';
+import { CartItem } from './models/cart.item.model.js';
 
 import { sequelize } from './config/database.js';
 import { databaseConnection } from './config/database.js';
