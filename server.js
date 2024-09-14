@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 
 import { User } from './models/user.model.js';
 import { Category } from './models/category.model.js';
+import { Product } from './models/product.model.js';
 
 import { sequelize } from './config/database.js';
 import { databaseConnection } from './config/database.js';
@@ -11,6 +12,7 @@ import { PORT } from './config/data_config.js';
 
 import { authRoutes } from './routes/auth.routes.js';
 import { categoryRoutes } from './routes/category.routes.js';
+import { productRoutes } from './routes/product.routes.js';
 
 
 const app = express();
@@ -23,6 +25,7 @@ app.use(cookieParser());
 // Rutas
 app.use(authRoutes);
 app.use(categoryRoutes);
+app.use(productRoutes);
 
 // Puerto
 app.listen(PORT, () => console.log(`Server Running on Port ${PORT}`));
