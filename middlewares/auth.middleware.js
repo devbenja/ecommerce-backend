@@ -11,12 +11,12 @@ export const isAuthenticated = (req, res, next) => {
         if (err) {
 
             return res.status(401).json({
-                message: 'You Dont Have Access'
+                message: 'You Are Not Authenticated'
             });
 
         } else {
 
-            req.user = decode
+            req.userId = decode.id
             next();
 
         }

@@ -20,7 +20,7 @@ export const login = async (req, res) => {
         if (!isMatch) return res.status(400).json({ message: 'Invalid Credentials' });
 
         const token = await createAccesToken({ 
-            id: user._id, 
+            id: user.id, 
             role: user.role, 
             username: user.username 
         });

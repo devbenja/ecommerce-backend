@@ -15,6 +15,7 @@ import { PORT } from './config/data_config.js';
 import { authRoutes } from './routes/auth.routes.js';
 import { categoryRoutes } from './routes/category.routes.js';
 import { productRoutes } from './routes/product.routes.js';
+import { cartRoutes } from './routes/cart.routes.js';
 
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(authRoutes);
 app.use(categoryRoutes);
 app.use(productRoutes);
+app.use(cartRoutes);
 
 // Puerto
 app.listen(PORT, () => console.log(`Server Running on Port ${PORT}`));
