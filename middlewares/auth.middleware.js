@@ -17,6 +17,9 @@ export const isAuthenticated = (req, res, next) => {
         } else {
 
             req.userId = decode.id
+            req.role = decode.role
+            req.username = decode.username
+            req.email = decode.email
             next();
 
         }
@@ -27,7 +30,7 @@ export const isAuthenticated = (req, res, next) => {
 
 export const isAdmin = (req, res, next) => {
 
-    if (req.user.role !== 'admin') {
+    if (req.role !== 'admin') {
 
         return res.status(403).json({ message: 'Access  Denied. Admins Only.' });
 

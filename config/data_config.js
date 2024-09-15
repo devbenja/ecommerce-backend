@@ -11,3 +11,6 @@ export const PG_PASSWORD = process.env.PG_PASSWORD || "benja123";
 export const PG_DATABASE = process.env.PG_DATABASE || "ecommerce";
 
 export const ORIGIN = process.env.ORIGIN || "http://localhost:5173";
+
+export const STRIPE_SECRET = process.env.STRIPE_SECRET;
+
